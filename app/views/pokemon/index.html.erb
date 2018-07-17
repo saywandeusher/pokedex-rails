@@ -1,0 +1,17 @@
+<h1>POKEDEX</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+    <th></th>
+  </tr>
+
+  <% @pokemons.each do |pokemon| %>
+    <tr>
+      <td><%= pokemon.num %></td>
+      <td><%= pokemon.name %></td>
+      <td><%= link_to 'Edit', edit_pokemon_path(pokemon) %></td>
+    </tr>
+  <% end %>
+</table>
