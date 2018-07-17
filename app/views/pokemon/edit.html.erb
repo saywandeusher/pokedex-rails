@@ -1,4 +1,7 @@
-<%= form_with scope: :pokemon, url: new_pokemon_path, local: true do |form| %>
+<h1>Edit article</h1>
+
+<%= form_with(model: @pokemons, local: true) do |form| %>
+
   <p>
     <%= form.label :num %><br>
     <%= form.text_field :num %>
@@ -54,7 +57,7 @@
     <%= form.text_area :created_at %>
   </p>
 
-    <p>
+  <p>
     <%= form.label :updated_at %><br>
     <%= form.text_area :updated_at %>
   </p>
@@ -62,4 +65,5 @@
   <p>
     <%= form.submit %>
   </p>
+
 <% end %>

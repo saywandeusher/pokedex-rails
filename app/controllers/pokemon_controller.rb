@@ -4,20 +4,40 @@ class PokemonController < ApplicationController
     end
   
     def show
+        @pokemons = Pokemon.find(params[:id])
     end
   
     def new
+        @pokemons = Pokemon.new(pokemon_params)
+
+        @pokemons.save
+        redirect_to root_path
     end
   
     def edit
+        @pokemons = Pokemon.find(params[:id])
     end
   
     def create
+
     end
   
     def update
+        @pokemons = Pokemon.find(params[:id])
+
+        @pokemons.update(pokemon_params)
+        redirect_to root_path
     end
   
     def destroy
+        @pokemons = Pokemon.find(params[:id])
+        @pokemons.destroy
+      
+        redirect_to root_path
+    end
+
+    private
+    def pokemon_params
+        params.require(:pokemon).permit(:num, :name, :img, :height, :weight, :candy, :candy_count, :egg, :avg_spawns, :spawn_time, :created_at, :updated_at)
     end
 end
